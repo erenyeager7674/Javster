@@ -196,10 +196,10 @@
 		<div class="mt-8 flex items-center justify-between">
 			<!-- Slide dots with progress -->
 			<div class="flex items-center gap-2">
-				{#each videos as _video, i (i)}
+				{#each videos as video, i (i)}
 					<button
 						onclick={() => goTo(i)}
-						aria-label="Go to slide {i + 1}"
+						aria-label="Go to slide {i + 1}: {video.title}"
 						class="relative overflow-hidden rounded-full transition-all duration-300 {i === current
 							? 'h-2 w-8 bg-white/30'
 							: 'h-2 w-2 bg-white/30 hover:bg-white/50'}"

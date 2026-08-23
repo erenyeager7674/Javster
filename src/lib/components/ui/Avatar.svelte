@@ -31,9 +31,7 @@
 </script>
 
 <span
-	class="relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-zinc-800 font-semibold text-zinc-400 ring-1 ring-zinc-700/60 {sizes[
-		size
-	]} {className}"
+	class="relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-zinc-800 font-semibold text-zinc-400 ring-1 ring-zinc-700/60 {sizes[size]} {className}"
 	title={alt}
 >
 	{#if src && !imgError}

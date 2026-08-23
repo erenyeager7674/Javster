@@ -136,6 +136,17 @@ export interface ActressListData {
 	totalScanned: number;
 }
 
+export interface BrowsePageData {
+	slug: string;
+	title: string;
+	videos: Video[];
+	total: number;
+	totalPages: number;
+	page: number;
+	orderby: string;
+	order: string;
+}
+
 export interface WatchPageData {
 	video: Video;
 	related: Video[];

@@ -124,10 +124,10 @@
 	{:else}
 		<!-- List Layout (Horizontal) -->
 		<div
-			class="group-hover:bg-muted/40 flex gap-3.5 rounded-xl p-1.5 transition-colors duration-150"
+			class="group-hover:bg-muted/40 flex gap-2.5 rounded-xl p-1.5 transition-colors duration-150 sm:gap-3.5"
 		>
 			<div
-				class="bg-muted/80 relative aspect-video w-36 shrink-0 overflow-hidden rounded-xl sm:w-44"
+				class="bg-muted/80 relative aspect-video w-28 shrink-0 overflow-hidden rounded-xl sm:w-36 lg:w-44"
 			>
 				<img
 					src={video.thumbnailUrl}

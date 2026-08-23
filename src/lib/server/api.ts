@@ -9,6 +9,7 @@ import type {
 	Channel,
 	Category,
 	CategoryRow,
+	BrowsePageData,
 	Actress,
 	ActressPageData,
 	ActressListData,
@@ -325,17 +326,6 @@ export async function getCategoryRows(
 	);
 	// only return rows that actually have content
 	return results.filter((r) => r.videos.length > 0);
-}
-
-export interface BrowsePageData {
-	slug: string;
-	title: string;
-	videos: Video[];
-	total: number;
-	totalPages: number;
-	page: number;
-	orderby: string;
-	order: string;
 }
 
 export async function getBrowsePageData(

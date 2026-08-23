@@ -1,12 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	interface Props {
-		categories?: unknown[];
-	}
-
-	let { categories }: Props = $props();
-
 	let searchQuery = $state('');
 	let mobileSearchOpen = $state(false);
 
@@ -82,8 +76,6 @@
 				<input
 					type="search"
 					bind:value={searchQuery}
-					onfocus={() => (searchFocused = true)}
-					onblur={() => (searchFocused = false)}
 					placeholder="Search videos, actresses, studios..."
 					class="border-border bg-background/80 text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-2xl border py-2 pr-4 pl-10 text-xs font-medium transition-all duration-200 outline-none focus:ring-2"
 				/>

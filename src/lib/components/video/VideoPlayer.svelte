@@ -4,9 +4,11 @@
 	interface Props {
 		video: Video;
 		autoplay?: boolean;
+		theaterMode?: boolean;
+		onTheaterToggle?: () => void;
 	}
 
-	let { video, autoplay = false }: Props = $props();
+	let { video, autoplay = false, theaterMode = false, onTheaterToggle }: Props = $props();
 
 	let videoEl = $state<HTMLVideoElement>();
 	let playing = $state(false);
@@ -79,7 +81,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="group relative aspect-video w-full overflow-hidden rounded-xl bg-black"
+	class="group relative w-full overflow-hidden bg-black {theaterMode ? 'aspect-video' : 'aspect-video rounded-xl max-w-5xl mx-auto'}"
 	onmousemove={resetControlsTimer}
 	onmouseleave={() => {
 		if (playing) showControls = false;
@@ -147,7 +149,7 @@
 			{/if}
 
 			<!-- Bottom controls bar -->
-			<div class="space-y-2 p-3 sm:p-4">
+			<div class="space-y-2 p-2 sm:p-3 lg:p-4">
 				<!-- Progress bar -->
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<div
@@ -168,19 +170,19 @@
 				</div>
 
 				<!-- Control buttons -->
-				<div class="flex items-center gap-2">
+				<div class="flex items-center gap-1.5 sm:gap-2">
 					<!-- Play/Pause -->
 					<button
 						onclick={togglePlay}
-						class="hover:text-accent-300 flex h-8 w-8 items-center justify-center text-white transition-colors"
+						class="hover:text-accent-300 flex h-7 w-7 items-center justify-center text-white transition-colors sm:h-8 sm:w-8"
 						aria-label={playing ? 'Pause' : 'Play'}
 					>
 						{#if playing}
-							<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+							<svg class="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24">
 								<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
 							</svg>
 						{:else}
-							<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+							<svg class="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24">
 								<path d="M8 5v14l11-7z" />
 							</svg>
 						{/if}
@@ -189,12 +191,12 @@
 					<!-- Mute -->
 					<button
 						onclick={toggleMute}
-						class="hover:text-accent-300 flex h-8 w-8 items-center justify-center text-white transition-colors"
+						class="hover:text-accent-300 flex h-7 w-7 items-center justify-center text-white transition-colors sm:h-8 sm:w-8"
 						aria-label={muted ? 'Unmute' : 'Mute'}
 					>
 						{#if muted}
 							<svg
-								class="h-5 w-5"
+								class="h-4 w-4 sm:h-5 sm:w-5"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="2"
@@ -213,7 +215,7 @@
 							</svg>
 						{:else}
 							<svg
-								class="h-5 w-5"
+								class="h-4 w-4 sm:h-5 sm:w-5"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="2"
@@ -229,7 +231,7 @@
 					</button>
 
 					<!-- Time display -->
-					<span class="ml-1 font-mono text-xs text-zinc-300">
+					<span class="ml-1 font-mono text-[10px] text-zinc-300 sm:text-xs">
 						{formatTime(currentTime)} / {formatTime(duration)}
 					</span>
 
@@ -239,12 +241,12 @@
 					<!-- Fullscreen -->
 					<button
 						onclick={toggleFullscreen}
-						class="hover:text-accent-300 flex h-8 w-8 items-center justify-center text-white transition-colors"
+						class="hover:text-accent-300 flex h-7 w-7 items-center justify-center text-white transition-colors sm:h-8 sm:w-8"
 						aria-label={fullscreen ? 'Exit fullscreen' : 'Fullscreen'}
 					>
 						{#if fullscreen}
 							<svg
-								class="h-5 w-5"
+								class="h-4 w-4 sm:h-5 sm:w-5"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="2"
@@ -258,7 +260,7 @@
 							</svg>
 						{:else}
 							<svg
-								class="h-5 w-5"
+								class="h-4 w-4 sm:h-5 sm:w-5"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="2"

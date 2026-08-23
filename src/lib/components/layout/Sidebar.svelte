@@ -127,7 +127,7 @@
 </script>
 
 <aside
-	class="border-sidebar-border bg-sidebar text-sidebar-foreground fixed top-16 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-r transition-[width] duration-200 ease-out {expanded
+	class="border-sidebar-border bg-sidebar text-sidebar-foreground fixed top-16 bottom-0 left-0 z-40 hidden flex-col overflow-hidden border-r transition-[width] duration-200 ease-out md:flex {expanded
 		? 'w-60 shadow-2xl shadow-black/20'
 		: 'w-14'}"
 	onmouseenter={() => (expanded = true)}
